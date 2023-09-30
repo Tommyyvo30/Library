@@ -1,0 +1,110 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This ensures the body takes up at least the full viewport height */
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+    
+}
+  
+  .header {
+    background-color: #333; 
+    color: #fff; 
+    text-align: center;
+    padding: 20px;
+    font-size: 3rem;
+  }
+  
+  /* Library Container */
+  .libraryContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px auto;
+    background-color: #fff; 
+    padding: 20px;
+         }
+  
+  /* Book Container */
+  .bookContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    height: 300px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  /* Form styles */
+  .bookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input {
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  /* Buttons */
+  .btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .newBookBtn,
+  .addBookBtn
+   {
+    background-color: #333; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newBookBtn:hover,
+  .addBookBtn:hover
+   {
+    background-color: #555; 
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 12px;
+    text-align: center;
+    margin-top: auto; 
+    background-color: #333; 
+    color: #fff; 
+  }
+  
+  /* Checkbox styling */
+  label {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Custom styles for the modal */
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+  
