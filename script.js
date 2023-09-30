@@ -135,11 +135,13 @@ class ModalCreation {
         // Create a book container for the new book and add it to the library container
         const bookContainer = newBook.createBookContainer();
         libraryContainer.appendChild(bookContainer);
+        this.modal.close();
       } else {
         alert("Please fill out all the fields");
       }
       event.preventDefault();
     });
+
     return addBookBtn;
   };
   isFormValid = () => {
