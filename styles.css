@@ -71,7 +71,8 @@ body, h1, p {
     align-items: center;
   }
   .newBookBtn,
-  .addBookBtn
+  .addBookBtn,
+  .deleteBookBtn
    {
     background-color: #333; 
     color: #fff; 

@@ -14,7 +14,6 @@ class Book {
     author.textContent = `Author: ${this.author}`;
     const pageCount = document.createElement("p");
     pageCount.textContent = `# of pages: ${this.pageCount}`;
-
     // Create a checkbox element for the read status
     const readStatusLabel = document.createElement("label");
     readStatusLabel.textContent = "Read Status:";
@@ -23,8 +22,25 @@ class Book {
     readStatusCheckbox.checked = false;
     readStatusLabel.appendChild(readStatusCheckbox);
 
+    const deleteContainer = document.createElement("div");
+    const deleteBookBtn = document.createElement("button");
+
+    deleteContainer.className = "deleteContainer";
+    deleteBookBtn.className = "deleteBookBtn";
+
+    deleteBookBtn.textContent = "Delete Book";
+    deleteBookBtn.addEventListener("click", () => {
+      myLibrary.deleteBook(this.title);
+    });
+    deleteContainer.appendChild(deleteBookBtn);
     // Append all elements to the bookContainer
-    bookContainer.append(title, author, pageCount, readStatusLabel);
+    bookContainer.append(
+      title,
+      author,
+      pageCount,
+      readStatusLabel,
+      deleteContainer
+    );
 
     return bookContainer;
   };
@@ -45,9 +61,21 @@ class Library {
   addBook(book) {
     this.books.push(book);
   }
-  deleteBook(book) {}
-}
+  deleteBook(title) {
+    // Filter the books array to exclude the book with the specified title
+    this.books = this.books.filter((book) => book.title !== title);
 
+    // Remove the corresponding DOM element
+    const bookContainers = document.querySelectorAll(".bookContainer");
+    for (const bookContainer of bookContainers) {
+      if (
+        bookContainer.querySelector("p").textContent.includes(`Title: ${title}`)
+      ) {
+        bookContainer.parentNode.removeChild(bookContainer);
+      }
+    }
+  }
+}
 class Header {
   createHeader = () => {
     const header = document.createElement("header");
@@ -122,7 +150,7 @@ class ModalCreation {
     });
     return newBookBtn;
   };
-  createDeleteBtn = () => {};
+
   // Create a button to add book
   createAddBookBtn = () => {
     const addBookBtn = document.createElement("button");
